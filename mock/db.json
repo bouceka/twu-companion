@@ -1,0 +1,100 @@
+{
+    "events": [
+        {
+            "id": "a0dd2c3a-0eab-4ab1-82b0-a8ebecc257d8",
+            "address": {
+                "street": "Robert N. Thompson Centre",
+                "city": "Langley",
+                "province": "",
+                "postalCode": "",
+                "country": "Canada"
+            },
+            "title": "A Midsummer Night's Dream by William Shakespeare",
+            "description": "Directed by Kate Muchmore Woo Athens, the not-so-distant future. The climate has changed, and humanity has learned to survive in a harsh world with sparse resources. In the spirit realm, an enduring…",
+            "categories": [
+                "Theater",
+                "Play"
+            ],
+            "startDate": "2024-03-12T00:00:00.000Z",
+            "endDate": "2024-03-23T00:00:00.000Z",
+            "imageUrl": "https://picsum.photos/id/23/200"
+        },
+        {
+            "id": "ff9a055f-ba71-4448-bca8-67b3e79fb748",
+            "address": {
+                "street": "David E. Enarson Gymnasium",
+                "city": "Langley",
+                "province": "",
+                "postalCode": "",
+                "country": "Canada"
+            },
+            "title": "Chapel Service",
+            "description": "Sung worship and a message brought by a visiting speaker. Speaker: Dr. Bruce Waltke",
+            "categories": [
+                "Religious",
+                "Chapel"
+            ],
+            "startDate": "2024-03-18T00:00:00.000Z",
+            "endDate": "2024-03-18T00:00:00.000Z",
+            "imageUrl": "https://picsum.photos/id/78/200"
+        },
+        {
+            "id": "46b21379-500f-4329-b8ea-3b12feacc31f",
+            "address": {
+                "street": "DeVries Centre",
+                "city": "Langley",
+                "province": "",
+                "postalCode": "",
+                "country": "Canada"
+            },
+            "title": "Film Premiere: Garry Oak Ecocultural Landscape",
+            "description": "See the premiere of the documentary, Blessed is the Spot: The Wounding and Healing of the Garry Oak Ecocultural Landscape",
+            "categories": [
+                "Film",
+                "Documentary",
+                "Environmental"
+            ],
+            "startDate": "2024-03-18T00:00:00.000Z",
+            "endDate": "2024-03-18T00:00:00.000Z",
+            "imageUrl": "https://picsum.photos/id/13/200"
+        },
+        {
+            "id": "5507e9ab-5ed3-4ea3-a140-1ffb3d1c116b",
+            "address": {
+                "street": "David E. Enarson Gymnasium",
+                "city": "Langley",
+                "province": "",
+                "postalCode": "",
+                "country": "Canada"
+            },
+            "title": "Devotion Chapel",
+            "description": "On Tuesdays and Thursdays, we gather to pray, engage in spiritual practices, and share together.",
+            "categories": [
+                "Religious",
+                "Chapel"
+            ],
+            "startDate": "2024-03-19T00:00:00.000Z",
+            "endDate": "2024-03-21T00:00:00.000Z",
+            "imageUrl": "https://picsum.photos/id/42/200"
+        },
+        {
+            "id": "c63ab3e2-1dc0-4710-bed2-15e8df354706",
+            "address": {
+                "street": "David E. Enarson Gymnasium",
+                "city": "Langley",
+                "province": "",
+                "postalCode": "",
+                "country": "Canada"
+            },
+            "title": "Chapel Service",
+            "description": "Sung worship and a message brought by a visiting speaker. Speaker: Dr. Bruce Waltke",
+            "categories": [
+                "Religious",
+                "Chapel"
+            ],
+            "startDate": "2024-03-20T00:00:00.000Z",
+            "endDate": "2024-03-20T00:00:00.000Z",
+            "imageUrl": "https://picsum.photos/id/32/200"
+        }
+    ]
+}
