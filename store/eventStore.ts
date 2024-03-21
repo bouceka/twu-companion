@@ -10,7 +10,7 @@ export interface EventState {
 }
 
 export interface EventActions {
-  setEvent: (data: TWUEvent[]) => void;
+  setEvents: (data: TWUEvent[]) => void;
   reduceEvent: (event: TWUEvent) => void;
 }
 
@@ -23,7 +23,7 @@ const useEventStore = create<EventState & EventActions>()(
   persist(
     (set) => ({
       ...initialState,
-      setEvent: (events: TWUEvent[]) => {
+      setEvents: (events: TWUEvent[]) => {
         set(() => ({
           events: events,
           totalCount: events.length,

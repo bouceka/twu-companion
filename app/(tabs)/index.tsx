@@ -11,17 +11,17 @@ import useLoadingStore from '@/store/loadingStore';
 import SearchBar from '@/components/SearchBar/SearchBar';
 
 export default function HomeScreen() {
-  const { events, setEvent } = useEventStore();
+  const { events, setEvents } = useEventStore();
   const { isLoading, setLoading } = useLoadingStore();
 
   useEffect(() => {
     setLoading(true);
     getTWUEvents()
       .then((data) => {
-        setEvent(data);
+        setEvents(data);
       })
       .finally(() => setLoading(false));
-  }, [setEvent]);
+  }, [setEvents]);
 
   return (
     <ScrollView>
