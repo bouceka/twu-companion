@@ -22,8 +22,8 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        // headerShown: useClientOnlyValue(false, true),
-        headerShown: false,
+        headerShown: useClientOnlyValue(false, true),
+        // headerShown: false,
         tabBarStyle: styles.tab,
       }}
     >
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#ddd',
     paddingTop: 8,
     paddingBottom: 8,
+    marginBottom: 8,
     height: 64,
   },
   tab2: {
