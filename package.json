@@ -15,8 +15,6 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
-    "@gluestack-style/react": "^1.0.52",
-    "@gluestack-ui/themed": "^1.1.12",
     "@react-navigation/native": "^6.0.2",
     "expo": "~50.0.5",
     "expo-font": "~11.10.2",
@@ -26,7 +24,7 @@
     "expo-status-bar": "~1.11.1",
     "expo-system-ui": "~2.9.3",
     "expo-web-browser": "~12.8.2",
-    "json-server": "^1.0.0-alpha.23",
+    "json-server": "0.17.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.73.2",
