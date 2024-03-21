@@ -16,8 +16,15 @@ export default {
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
   },
+
+  // from TWU.ca
+  primary: '#428fec',
+  elegantGrey: '#2d2a2b',
+  socialGrey: '#efeeeb',
+  accessibleBlue:'#2375da',
+
+  //Additional
   blue: '#428fec',
-  primary: '#CC8C54',
   secondary: '#81B15E',
   accent1: '#FFD9B6',
   accent2: '#C2DFAD',
