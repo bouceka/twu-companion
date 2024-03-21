@@ -5,7 +5,6 @@ import { zustandStorage } from './mmkv-storage';
 
 export interface EventState {
   events: TWUEvent[];
-
   totalCount: number;
 }
 

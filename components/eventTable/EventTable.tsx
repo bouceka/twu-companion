@@ -1,4 +1,5 @@
 import Colors from '@/constants/Colors';
+import { defaultStyles } from '@/constants/Styles';
 import { TWUEvent } from '@/types';
 import { FontAwesome, FontAwesome6 } from '@expo/vector-icons';
 import { Link } from 'expo-router';
@@ -34,11 +35,11 @@ const EventTable = ({ data }: Props) => {
   );
 
   return (
-    <View style={styles.sectionContainer}>
+    <View style={[styles.sectionContainer, defaultStyles.container]}>
       <Text>Events</Text>
       <View style={styles.tableContainer}>
         {data.length == 0 ? (
-          <Text >Loading...</Text>
+          <Text>No Data</Text>
         ) : (
           // TODO: Use rather FlatList
           // <FlatList data={data} renderItem={renderItem} keyExtractor={(item) => item.id} />
@@ -46,12 +47,11 @@ const EventTable = ({ data }: Props) => {
             <Link
               key={item.id}
               style={{ backgroundColor: index % 2 !== 0 ? '#FFFFFF' : '#F0F0F0' }}
-              href={`/events/${item.title}`}
+              href={`/events/${item.id}`}
               asChild
             >
               <TouchableOpacity>
                 <View style={[styles.tableRow]}>
-                  <Image source={{ uri: item.imageUrl }} style={styles.thumbnail} />
                   <View style={styles.tableRowData}>
                     <Text style={styles.tableData} numberOfLines={1}>
                       {item.title}
@@ -93,10 +93,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#cfcfcf',
     padding: 10,
-    margin: 10,
+    marginVertical: 10,
   },
   sectionContainer: {
-    margin: 10,
+    marginVertical: 10,
   },
   tableHead: {
     flexDirection: 'row',
@@ -112,13 +112,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     gap: 16,
-    paddingVertical: 5,
+    paddingVertical: 8,
+    height: 40,
   },
   tableRowData: {
     flex: 1,
     flexDirection: 'row',
     gap: 16,
-    paddingRight: 8,
+    paddingHorizontal: 8,
   },
   tableData: {
     flex: 2,

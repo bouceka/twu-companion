@@ -3,8 +3,9 @@ import { StyleSheet } from 'react-native';
 
 export const defaultStyles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#FDFFFF',
+    paddingHorizontal: 16,
   },
   inputField: {
     height: 44,
@@ -13,9 +14,10 @@ export const defaultStyles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     backgroundColor: '#fff',
+    flex:1
   },
   btn: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.accessibleBlue,
     height: 50,
     borderRadius: 8,
     justifyContent: 'center',
@@ -24,7 +26,10 @@ export const defaultStyles = StyleSheet.create({
   btnText: {
     color: '#fff',
     fontSize: 16,
-    fontFamily: 'mon-b',
+    // fontFamily: 'mon-b',
+    fontWeight:'600',
+    alignItems:'center',
+    paddingHorizontal:16
   },
   btnIcon: {
     position: 'absolute',
@@ -41,5 +46,8 @@ export const defaultStyles = StyleSheet.create({
     paddingHorizontal: 20,
     borderTopColor: Colors.white,
     borderTopWidth: StyleSheet.hairlineWidth,
+  },
+  bold: {
+    fontWeight: 'bold',
   },
 });
