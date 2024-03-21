@@ -25,6 +25,11 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
   });
+  const [fontsLoaded] = useFonts({
+    'Public-Sans': require('../assets/fonts/PublicSans.ttf'),
+  });
+  console.log(fontsLoaded)
+  
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -62,6 +67,20 @@ function RootLayoutNav() {
         />
         <Stack.Screen
           name='events/all-events'
+          options={{
+            headerBackTitle: 'Back',
+            title: '',
+          }}
+        />
+        <Stack.Screen
+          name='tips/[id]'
+          options={{
+            headerBackTitle: 'Back',
+            title: '',
+          }}
+        />
+        <Stack.Screen
+          name='tips/all-tips'
           options={{
             headerBackTitle: 'Back',
             title: '',
