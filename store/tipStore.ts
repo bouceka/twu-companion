@@ -1,7 +1,7 @@
-import { PagedResult, TWUEvent, Tip } from '@/types';
+import { Tip } from '@/types';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { zustandStorage } from './mmkv-storage';
+import { mmkvStorage } from './mmkv-storage';
 
 export interface TipState {
   tips: Tip[];
@@ -41,7 +41,7 @@ const useTipStore = create<TipState & TipActions>()(
     
     {
       name: 'tips',
-      storage: createJSONStorage(() => zustandStorage),
+      storage: createJSONStorage(() => mmkvStorage),
     }
   )
 );
