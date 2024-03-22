@@ -20,16 +20,16 @@ export default {
   // from TWU.ca
   primary: '#428fec',
   elegantGrey: '#2d2a2b',
-  socialGrey: '#efeeeb',
+  socialGrey: '#ecebe8',
   accessibleBlue:'#2375da',
+  trinityBlue:'#002856',
+  white: '#FDFFFF',
+  background: '#FDFFFF',
 
   //Additional
   blue: '#428fec',
   secondary: '#81B15E',
   accent1: '#FFD9B6',
   accent2: '#C2DFAD',
-  background1: '#E6F5DB',
-  background2: '#FFEFE0',
   black: '#212121',
-  white: '#FFFCF6',
 };

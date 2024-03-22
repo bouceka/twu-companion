@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 
 import { useColorScheme } from '@/components/useColorScheme';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -14,7 +15,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
+  initialRouteName: 'onboarding',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -26,6 +27,8 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
+  const router = useRouter()
+
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
@@ -34,6 +37,7 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
+      // router.navigate('onboarding')
     }
   }, [loaded]);
 
@@ -46,42 +50,45 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-  const router = useRouter();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='modal' options={{ presentation: 'modal' }} />
-        <Stack.Screen
-          name='events/[id]'
-          options={{
-            headerBackTitle: 'Back',
-            title: '',
-          }}
-        />
-        <Stack.Screen
-          name='events/all-events'
-          options={{
-            headerBackTitle: 'Back',
-            title: '',
-          }}
-        />
-        <Stack.Screen
-          name='tips/[id]'
-          options={{
-            headerBackTitle: 'Back',
-            title: '',
-          }}
-        />
-        <Stack.Screen
-          name='tips/all-tips'
-          options={{
-            headerBackTitle: 'Back',
-            title: '',
-          }}
-        />
-      </Stack>
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack initialRouteName='onboarding'>
+          <Stack.Screen name='onboarding' options={{ headerShown: false }} />
+          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+          <Stack.Screen name='modal' options={{ presentation: 'modal' }} />
+          <Stack.Screen
+            name='events/[id]'
+            options={{
+              headerBackTitle: 'Back',
+              title: '',
+            }}
+          />
+          <Stack.Screen
+            name='events/all-events'
+            options={{
+              headerBackTitle: 'Back',
+              title: '',
+            }}
+          />
+          <Stack.Screen
+            name='tips/[id]'
+            options={{
+              headerBackTitle: 'Back',
+              title: '',
+            }}
+          />
+          <Stack.Screen
+            name='tips/all-tips'
+            options={{
+              headerBackTitle: 'Back',
+              title: '',
+            }}
+          />
+        </Stack>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
+

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "welcome-to-twu",
-    "slug": "welcome-to-twu",
+    "name": "TWU Companion",
+    "slug": "twu-companion",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
