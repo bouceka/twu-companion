@@ -37,7 +37,7 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
-      // router.navigate('onboarding')
+      router.navigate('onboarding')
     }
   }, [loaded]);
 

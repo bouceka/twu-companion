@@ -64,9 +64,6 @@ const Onboarding = (props: Props) => {
     }))
   );
 
-  // const router = useRouter()
-  // // const [showOnboarding, setShowOnboarding] = useState(false);
-
   const handleOnboarded = async () => {
     const onboard = await mmkvStorage.getItem('onboard');
     if (onboard !== null) {
