@@ -14,22 +14,42 @@ export const defaultStyles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     backgroundColor: '#fff',
-    flex:1
+    flex: 1,
+  },
+  link: {
+    color: Colors.blue,
+    fontSize: 16,
   },
   btn: {
     backgroundColor: Colors.accessibleBlue,
-    height: 50,
+    height: 44,
     borderRadius: 8,
+    paddingHorizontal: 16,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  btnOutline: {
+    borderColor: Colors.accessibleBlue,
+    borderWidth: 2,
+    height: 44,
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnOutlineText: {
+    color: Colors.accessibleBlue,
+    fontSize: 16,
+    fontWeight: '600',
+    alignItems: 'center',
+    paddingHorizontal: 16,
   },
   btnText: {
     color: '#fff',
     fontSize: 16,
-    // fontFamily: 'mon-b',
-    fontWeight:'600',
-    alignItems:'center',
-    paddingHorizontal:16
+    fontWeight: '600',
+    alignItems: 'center',
+    paddingHorizontal: 16,
   },
   btnIcon: {
     position: 'absolute',

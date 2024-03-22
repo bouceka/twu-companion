@@ -72,7 +72,7 @@ export const Search = (props: Props) => {
       />
       <TouchableOpacity style={defaultStyles.btn}>
         <Text style={defaultStyles.btnText}>
-          <FontAwesome size={24} name='search' /> Search
+          <FontAwesome size={16} name='search' /> Search
         </Text>
       </TouchableOpacity>
     </View>
