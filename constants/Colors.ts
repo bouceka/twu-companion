@@ -25,11 +25,4 @@ export default {
   trinityBlue:'#002856',
   white: '#FDFFFF',
   background: '#FDFFFF',
-
-  //Additional
-  blue: '#428fec',
-  secondary: '#81B15E',
-  accent1: '#FFD9B6',
-  accent2: '#C2DFAD',
-  black: '#212121',
 };
