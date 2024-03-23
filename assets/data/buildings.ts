@@ -117,7 +117,7 @@ export const BUILDINGS: Building[] = [
   },
   {
     longitude: -122.59586406061825,
-    latitude: 49.141091658900486,
+    latitude: 49.14102,
     title: 'DeVries Centre',
     id: 15,
     category: 'Dorm',

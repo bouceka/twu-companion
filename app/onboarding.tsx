@@ -103,7 +103,6 @@ const Onboarding = (props: Props) => {
 
   const endOnboarding = async () => {
     setScreenIndex(0);
-    console.log(userBio);
     await mmkvStorage.setItem('onboard', JSON.stringify(userBio));
     router.navigate('(tabs)');
   };
