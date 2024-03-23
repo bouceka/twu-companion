@@ -64,9 +64,6 @@ const Onboarding = (props: Props) => {
     }))
   );
 
-  // const router = useRouter()
-  // // const [showOnboarding, setShowOnboarding] = useState(false);
-
   const handleOnboarded = async () => {
     const onboard = await mmkvStorage.getItem('onboard');
     if (onboard !== null) {
@@ -106,7 +103,6 @@ const Onboarding = (props: Props) => {
 
   const endOnboarding = async () => {
     setScreenIndex(0);
-    console.log(userBio);
     await mmkvStorage.setItem('onboard', JSON.stringify(userBio));
     router.navigate('(tabs)');
   };
