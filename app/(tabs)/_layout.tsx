@@ -9,7 +9,7 @@ import { StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
+function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome5>['name']; color: string }) {
   return <FontAwesome5 size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
