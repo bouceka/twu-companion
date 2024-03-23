@@ -70,7 +70,7 @@ const EventTable = ({ data }: Props) => {
         <Link style={styles.seeMoreLink} href={'/events/all-events'}>
           See All
         </Link>
-        <FontAwesome color={Colors.blue} name='arrow-right' />
+        <FontAwesome color={Colors.primary} name='arrow-right' />
       </View>
     </View>
   );
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   seeMoreLink: {
-    color: Colors.blue,
+    color: Colors.primary,
   },
   tableContainer: {
     flex: 1,
