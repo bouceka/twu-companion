@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, ScrollView, StyleSheet, TouchableOpacity, useColorScheme } from 'react-native';
 import MapView, { Region } from 'react-native-maps';
 
 import { Text, View } from '@/components/Themed';
@@ -15,7 +15,7 @@ export default function MapScreen() {
   const scrollRef = useRef<any>(null); // scroll to particular building on the list ref
   const itemsRef = useRef<Array<TouchableOpacity | null>>([]); // list of items in the building list ref
   const [activeIndex, setActiveIndex] = useState(0); // selected building index
-
+  const colorScheme = useColorScheme();
   const initialRegion: Region = {
     // initial TWU campus
     latitude: 49.140302,
@@ -42,8 +42,8 @@ export default function MapScreen() {
   };
 
   const selectBuilding = (building: Building) => {
-    const selected = itemsRef.current[building.id -1 ];
-    setActiveIndex(building.id -1);
+    const selected = itemsRef.current[building.id - 1];
+    setActiveIndex(building.id - 1);
     selected?.measure((x, y) => {
       scrollRef.current?.scrollTo({ x: 0, y: y - 8, animated: true });
     });
@@ -57,7 +57,7 @@ export default function MapScreen() {
     mapRef.current?.animateToRegion(region);
   };
 
-  const refreshRegion = () => mapRef.current?.animateToRegion(initialRegion)
+  const refreshRegion = () => mapRef.current?.animateToRegion(initialRegion);
 
   return (
     <View style={styles.container}>
@@ -72,21 +72,24 @@ export default function MapScreen() {
         ))}
       </MapView>
       <TouchableOpacity style={styles.locateBtn}>
-        <FontAwesome name='location-arrow' size={24} color={Colors.black} onPress={onLocateMe} />
+        <FontAwesome name='location-arrow' size={24} onPress={onLocateMe} />
       </TouchableOpacity>
       <TouchableOpacity style={[styles.locateBtn, { left: 16, right: 'auto' }]}>
-        <FontAwesome name='refresh' size={24} color={Colors.black} onPress={refreshRegion} />
+        <FontAwesome name='refresh' size={24} onPress={refreshRegion} />
       </TouchableOpacity>
       <ScrollView ref={scrollRef}>
         {BUILDINGS.map((building, index) => (
           <TouchableOpacity
             key={building.id}
-            style={[styles.buildingItem, activeIndex === index ? styles.buildingItemActive : null]}
+            style={[
+              styles.buildingItem,
+              activeIndex === index ? { backgroundColor: Colors[colorScheme ?? 'light'].socialGrey } : null,
+            ]}
             onPress={() => selectBuilding(building)}
             ref={(el) => (itemsRef.current[index] = el)}
           >
             <Image source={building.imageSrc} style={styles.image} />
-            <View style={activeIndex === index ? styles.buildingContentActive : styles.buildingContent}>
+            <View style={activeIndex === index && { backgroundColor: Colors[colorScheme ?? 'light'].socialGrey }}>
               <Text style={styles.buildingItemTitle}>{building.title}</Text>
               <Text style={styles.buildingItemCategory}>{building.category}</Text>
             </View>
@@ -102,9 +105,6 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
   },
-  buildingContent: {
-    backgroundColor: Colors.white,
-  },
   buildingContentActive: {
     backgroundColor: Colors.socialGrey,
   },
@@ -116,11 +116,9 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.elegantGrey,
     borderBottomWidth: 1,
   },
-  buildingItemActive: {
-    backgroundColor: Colors.socialGrey,
-  },
+
   buildingItemCategory: {
-    color: Colors.elegantGrey,
+    // color: Colors.elegantGrey,
     fontSize: 16,
     paddingVertical: 4,
   },

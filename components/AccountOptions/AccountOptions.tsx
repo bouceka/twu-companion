@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { View, Text } from '../Themed';
+import { View, Text, Icon } from '../Themed';
 import { TouchableOpacity, StyleSheet, Linking, Appearance, useColorScheme, Modal, Pressable } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
@@ -16,7 +16,7 @@ export const AccountOptions = (props: Props) => {
       <Text style={styles.title}>Settings</Text>
       <TouchableOpacity onPress={() => Linking.openSettings()} style={styles.row}>
         <View style={styles.profile}>
-          <FontAwesome5 size={24} color={Colors.trinityBlue} name='bell' />
+          <Icon size={24} color={Colors.trinityBlue} name='bell' />
           <View style={styles.profileContent}>
             <Text style={styles.name}>Notifications</Text>
           </View>
@@ -27,7 +27,7 @@ export const AccountOptions = (props: Props) => {
       </TouchableOpacity>
       <TouchableOpacity onPress={() => Linking.openSettings()} style={styles.row}>
         <View style={styles.profile}>
-          <FontAwesome5 size={24} color={Colors.trinityBlue} name='location-arrow' />
+          <Icon size={24} color={Colors.trinityBlue} name='location-arrow' />
           <View style={styles.profileContent}>
             <Text style={styles.name}>Location</Text>
           </View>
@@ -38,7 +38,7 @@ export const AccountOptions = (props: Props) => {
       </TouchableOpacity>
       <TouchableOpacity style={styles.row}>
         <View style={styles.profile}>
-          <FontAwesome5 size={24} color={Colors.trinityBlue} name='moon' />
+          <Icon size={24} color={Colors.trinityBlue} name='moon' />
           <View style={styles.profileContent}>
             <Text style={styles.name}>Dark Mode</Text>
           </View>
@@ -47,7 +47,7 @@ export const AccountOptions = (props: Props) => {
       </TouchableOpacity>
       <TouchableOpacity style={styles.row} onPress={() => router.navigate('/(modals)/help')}>
         <View style={styles.profile}>
-          <FontAwesome5 size={24} color={Colors.trinityBlue} name='question-circle' />
+          <Icon size={24} color={Colors.trinityBlue} name='question-circle' />
           <View style={styles.profileContent}>
             <Text style={styles.name}>Help</Text>
           </View>
@@ -104,6 +104,9 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.socialGrey,
     padding: 16,
     borderRadius: 8,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   modalContent: {

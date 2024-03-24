@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, useColorScheme } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import EventTable from '@/components/EventTable/EventTable';
@@ -11,12 +11,13 @@ import useTipStore from '@/store/tipStore';
 import TipTable from '@/components/Tips/TipsTable';
 import { defaultStyles } from '@/constants/Styles';
 import Search from '@/components/Search/Search';
+import { View, Text } from '@/components/Themed';
 
 export default function HomeScreen() {
   const { events, setEvents } = useEventStore();
   const { tips, setTips } = useTipStore();
   const { isLoading, setLoading } = useLoadingStore();
-
+  const colorScheme = useColorScheme();
   useEffect(() => {
     setLoading(true);
     getTWUEvents()
@@ -36,7 +37,7 @@ export default function HomeScreen() {
   }, [setTips]);
 
   return (
-    <ScrollView contentContainerStyle={{ gap: 8, marginBottom: 8 }} style={{ backgroundColor: '#fff' }}>
+    <ScrollView  contentContainerStyle={{ gap: 8, marginBottom: 8 }} style={{ backgroundColor: colorScheme === 'light'?'#fff':'#222' }}>
       <View style={[styles.header, defaultStyles.container]}>
         <Text style={styles.subHeading}>Welcome to</Text>
         <Text style={styles.heading}>TWU Companion</Text>

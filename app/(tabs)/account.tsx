@@ -30,7 +30,7 @@ export default function AccountScreen() {
           <FontAwesome5 size={16} color={Colors.trinityBlue} name='chevron-right' />
         </View>
       </TouchableOpacity>
-      <View style={styles.separator} lightColor='#eee' darkColor='rgb(0, 0, 0)' />
+      <View style={styles.separator} lightColor='#eee' darkColor='#aaa' />
       <AccountOptions />
     </View>
   );
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom:8
+    marginBottom: 8,
   },
   name: {
     fontSize: 20,

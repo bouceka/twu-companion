@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, TextInput, TouchableOpacity, View, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import Colors from '../../constants/Colors';
 import { FontAwesome } from '@expo/vector-icons';
 import { defaultStyles } from '@/constants/Styles';
@@ -8,6 +8,8 @@ import useTipStore from '@/store/tipStore';
 import useEventStore from '@/store/eventStore';
 import { getTWUEvents, getTips } from '@/api/api';
 import useLoadingStore from '@/store/loadingStore';
+import { View, Text, TextInput } from '../Themed';
+
 
 type Props = {};
 

@@ -90,8 +90,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     elevation: 0,
-    backgroundColor: '#fff',
-    borderTopColor: '#ddd',
+    borderTopColor: '#ccc',
     paddingTop: 8,
     paddingBottom: 8,
     marginBottom: 8,

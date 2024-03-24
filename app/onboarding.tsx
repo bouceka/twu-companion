@@ -328,7 +328,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
     marginHorizontal: 15,
-    marginTop: 16,
+    marginTop: 24,
   },
   stepIndicator: {
     flex: 1,

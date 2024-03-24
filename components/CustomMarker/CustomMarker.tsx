@@ -1,9 +1,9 @@
-import { View, Text } from 'react-native';
 import React from 'react';
 import { Marker } from 'react-native-maps';
 import { Building } from '@/types';
-import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
+import { useColorScheme } from 'react-native';
 
 interface Props {
   building: Building;
@@ -12,6 +12,8 @@ interface Props {
 }
 
 const CustomMarker = ({ building, onPress, isActive }: Props) => {
+  const colorScheme = useColorScheme();
+
   return (
     <>
       <Marker
@@ -53,7 +55,7 @@ const CustomMarker = ({ building, onPress, isActive }: Props) => {
             </View>
           </>
         )} */}
-        <FontAwesome color={Colors.accessibleBlue} size={28} name='map-marker' />
+        <FontAwesome color={Colors.primary} size={28} name='map-marker' />
       </Marker>
     </>
   );
