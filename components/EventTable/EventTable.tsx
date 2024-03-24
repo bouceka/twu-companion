@@ -1,10 +1,11 @@
 import Colors from '@/constants/Colors';
 import { defaultStyles } from '@/constants/Styles';
 import { TWUEvent } from '@/types';
-import { FontAwesome, FontAwesome6 } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, Pressable } from 'react-native';
+import { StyleSheet, FlatList, Image, TouchableOpacity, Pressable } from 'react-native';
+import { View, Text } from '../Themed';
 
 interface Props {
   data: TWUEvent[];
@@ -46,7 +47,7 @@ const EventTable = ({ data }: Props) => {
           data.map((item, index) => (
             <Link
               key={item.id}
-              style={{ backgroundColor: index % 2 !== 0 ? '#FFFFFF' : '#F0F0F0' }}
+              style={{ borderBottomColor: '#ccc', borderBottomWidth: index < data.length - 1 ? 1 : 0 }}
               href={`/events/${item.id}`}
               asChild
             >
@@ -70,7 +71,7 @@ const EventTable = ({ data }: Props) => {
         <Link style={styles.seeMoreLink} href={'/events/all-events'}>
           See All
         </Link>
-        <FontAwesome color={Colors.blue} name='arrow-right' />
+        <FontAwesome color={Colors.primary} name='arrow-right' />
       </View>
     </View>
   );
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   seeMoreLink: {
-    color: Colors.blue,
+    color: Colors.primary,
   },
   tableContainer: {
     flex: 1,

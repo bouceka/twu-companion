@@ -25,6 +25,7 @@ export default function TabLayout() {
         headerShown: useClientOnlyValue(false, true),
         // headerShown: false,
         tabBarStyle: styles.tab,
+        tabBarLabelStyle: { fontSize: 12 },
       }}
     >
       <Tabs.Screen
@@ -72,7 +73,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name='account'
         options={{
-          title: 'Account',
+          title: 'Settings',
           tabBarIcon: ({ color }) => <TabBarIcon name='user' color={color} />,
         }}
       />
@@ -89,28 +90,10 @@ const styles = StyleSheet.create({
   },
   tab: {
     elevation: 0,
-    backgroundColor: '#fff',
-    borderTopColor: '#ddd',
+    borderTopColor: '#ccc',
     paddingTop: 8,
     paddingBottom: 8,
     marginBottom: 8,
     height: 64,
-  },
-  tab2: {
-    position: 'absolute',
-    bottom: 20,
-    left: 20,
-    right: 20,
-    elevation: 0,
-    backgroundColor: '#fff',
-    borderTopColor: '#fff',
-    borderRadius: 8,
-    paddingTop: 8,
-    paddingBottom: 8,
-    height: 64,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 7,
   },
 });
