@@ -2,9 +2,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, Touchable } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
-import { ExternalLink } from '@/components/ExternalLink';
 import * as MailComposer from 'expo-mail-composer';
 import { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -43,7 +41,6 @@ export const Help = (props: Props) => {
         </Text>
       </TouchableOpacity>
 
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
     </View>
   );
