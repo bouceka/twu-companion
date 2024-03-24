@@ -7,7 +7,7 @@ import { Text as DefaultText, View as DefaultView, TextInput as DefaultTextInput
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from './useColorScheme';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5, FontAwesome6 } from '@expo/vector-icons';
 
 type ThemeProps = {
   lightColor?: string;
@@ -47,9 +47,10 @@ export function View(props: ViewProps) {
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
 
-export function Icon(props: IconProps) {
+export function Icon(props: IconProps, version?: number) {
   const { lightColor, darkColor, size, ...otherProps } = props;
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  if (version !== null) return <FontAwesome6 style={[{ color }]} size={size} {...otherProps} />;
   return <FontAwesome5 style={[{ color }]} size={size} {...otherProps} />;
 }
 

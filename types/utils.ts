@@ -1,4 +1,5 @@
-import { ImageSourcePropType } from "react-native";
+import { Icon } from '@/components/Themed';
+import { ImageSourcePropType } from 'react-native';
 
 export type PagedResult<T> = {
   results: T[];
@@ -13,4 +14,13 @@ export interface Building {
   id: number;
   category: string;
   imageSrc: ImageSourcePropType;
+}
+
+export interface SchoolService {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+  iconVersion?: number;
+  href: string;
 }
