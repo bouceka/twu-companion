@@ -58,6 +58,7 @@ function RootLayoutNav() {
           <Stack.Screen name='onboarding' options={{ headerShown: false }} />
           <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
           <Stack.Screen name='modal' options={{ presentation: 'modal' }} />
+          <Stack.Screen name='(modals)/help' options={{ presentation: 'modal', headerTitle:'User Help' }} />
           <Stack.Screen
             name='events/[id]'
             options={{
