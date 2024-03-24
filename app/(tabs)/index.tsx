@@ -23,6 +23,8 @@ export default function HomeScreen() {
     getTWUEvents()
       .then((data) => {
         setEvents(data);
+      }).catch(function (error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
       })
       .finally(() => setLoading(false));
   }, [setEvents]);
@@ -32,6 +34,8 @@ export default function HomeScreen() {
     getTips()
       .then((data) => {
         setTips(data);
+      }).catch(function (error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
       })
       .finally(() => setLoading(false));
   }, [setTips]);

@@ -23,7 +23,7 @@ const TipTable = ({ data }: Props) => {
           // <FlatList data={data} renderItem={renderItem} keyExtractor={(item) => item.id} />
           data.map((item, index) => (
             <Link
-              key={item.id}
+            key={item.id + index}
               style={{ borderBottomColor: '#ccc', borderBottomWidth: index < data.length - 1 ? 1 : 0 }}
               href={`/tips/${item.id}`}
               asChild
