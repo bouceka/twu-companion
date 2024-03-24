@@ -52,7 +52,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name='services'
         options={{
-          title: 'Services',
+          tabBarLabel:'Services',
+          title: 'Student Services',
           tabBarIcon: ({ color }) => <TabBarIcon name='info-circle' color={color} />,
         }}
       />

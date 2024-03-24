@@ -5,7 +5,7 @@ async function get(url: string) {
     method: 'GET',
     header: await getHeaders(),
   };
-  const response = await fetch(baseUrl + "/" + url, requestOptions);
+  const response = await fetch(baseUrl + url, requestOptions);
   return await handleResponse(response);
 }
 
