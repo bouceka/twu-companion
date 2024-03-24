@@ -3,18 +3,31 @@ import * as React from 'react';
 import { Icon, View, Text } from '../Themed';
 import { SCHOOL_SERVICES } from '@/assets/data/schoolServices';
 import { SchoolService } from '@/types';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, useColorScheme } from 'react-native';
 import Colors from '@/constants/Colors';
 import * as Linking from 'expo-linking';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export const ServiceCard = () => {
+  const colorScheme = useColorScheme();
   const handlePressButtonAsync = async (href: string) => {
     await Linking.openURL(href);
   };
   const renderItem = ({ item, index }: { item: SchoolService; index: number }) => (
-    <TouchableOpacity style={[styles.serviceCard]} key={item.id} onPress={() => handlePressButtonAsync(item.href)}>
-      <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+    <TouchableOpacity
+      style={[styles.serviceCard, { backgroundColor: colorScheme == 'light' ? Colors.socialGrey : Colors.socialGreyDark }]}
+      key={item.id}
+      onPress={() => handlePressButtonAsync(item.href)}
+    >
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: 16,
+          backgroundColor: colorScheme == 'light' ? Colors.socialGrey : Colors.socialGreyDark,
+        }}
+      >
         <Text style={styles.title} numberOfLines={1}>
           {item.title}
         </Text>
@@ -36,9 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.background,
     padding: 16,
-    shadowColor: Colors.black,
     marginVertical: 8,
     gap: 8,
     shadowOpacity: 0.1,
