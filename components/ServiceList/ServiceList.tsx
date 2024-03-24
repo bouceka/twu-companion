@@ -8,7 +8,7 @@ import Colors from '@/constants/Colors';
 import * as Linking from 'expo-linking';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export const ServiceCard = () => {
+export const ServiceList = () => {
   const colorScheme = useColorScheme();
   const handlePressButtonAsync = async (href: string) => {
     await Linking.openURL(href);
