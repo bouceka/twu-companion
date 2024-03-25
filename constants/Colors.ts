@@ -24,7 +24,7 @@ export default {
   primary: '#428fec',
   elegantGrey: '#2d2a2b',
   socialGrey: '#ecebe8',
-  socialGreyDark: '#555555',
+  socialGreyDark: '#444',
   accessibleBlue:'#2375da',
   trinityBlue:'#002856',
   white: '#FDFFFF',

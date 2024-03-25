@@ -27,7 +27,7 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
-  const router = useRouter()
+  const router = useRouter();
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
-      router.navigate('onboarding')
+      router.navigate('onboarding');
     }
   }, [loaded]);
 
@@ -56,8 +56,9 @@ function RootLayoutNav() {
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack initialRouteName='onboarding'>
           <Stack.Screen name='onboarding' options={{ headerShown: false }} />
+          <Stack.Screen name='checklist/[id]' options={{ headerBackTitle: 'Back', title: '' }} />
           <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-          <Stack.Screen name='(modals)/help' options={{ presentation: 'modal', headerTitle:'User Help' }} />
+          <Stack.Screen name='(modals)/help' options={{ presentation: 'modal', headerTitle: 'User Help' }} />
           <Stack.Screen
             name='events/[id]'
             options={{
@@ -91,4 +92,3 @@ function RootLayoutNav() {
     </GestureHandlerRootView>
   );
 }
-

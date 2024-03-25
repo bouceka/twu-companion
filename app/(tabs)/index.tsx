@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, useColorScheme } from 'react-native';
+import { Platform, ScrollView, StyleSheet, useColorScheme } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import EventTable from '@/components/EventTable/EventTable';
@@ -12,6 +12,7 @@ import TipTable from '@/components/Tips/TipsTable';
 import { defaultStyles } from '@/constants/Styles';
 import Search from '@/components/Search/Search';
 import { View, Text } from '@/components/Themed';
+import { StatusBar } from 'expo-status-bar';
 
 export default function HomeScreen() {
   const { events, setEvents } = useEventStore();
@@ -42,6 +43,8 @@ export default function HomeScreen() {
 
   return (
     <ScrollView  contentContainerStyle={{ gap: 8, marginBottom: 8 }} style={{ backgroundColor: colorScheme === 'light'?'#fff':'#222' }}>
+      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+
       <View style={[styles.header, defaultStyles.container]}>
         <Text style={styles.subHeading}>Welcome to</Text>
         <Text style={styles.heading}>TWU Companion</Text>

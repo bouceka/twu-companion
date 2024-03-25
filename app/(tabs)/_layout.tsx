@@ -52,8 +52,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name='services'
         options={{
-          tabBarLabel:'Services',
-          title: 'Student Services',
+          title: 'Services',
+          headerTitle: 'Student Services',
           tabBarIcon: ({ color }) => <TabBarIcon name='info-circle' color={color} />,
         }}
       />
@@ -61,6 +61,7 @@ export default function TabLayout() {
         name='checklist'
         options={{
           title: 'Checklist',
+          headerTitle: 'Your Checklist',
           tabBarIcon: ({ color }) => <TabBarIcon name='list' color={color} />,
         }}
       />
