@@ -1,6 +1,4 @@
-Run: `npx expo prebuild`
-Run: `npx expo run:ios`
-Run: `yarn run mock`
+# TWU Companion
 
 TWU Companion is an application designed by a team of students from Trinity Western University. The group is comprised of members Adam Boucek, Andrew Nelson, Jenna De Greeff, and Stefan Martinelli. The app is designed for first-year or international students arriving to Trinity Western University and will act as a "companion' to guide them throughout thier transition to TWU. 
 
@@ -63,3 +61,7 @@ This application is built using React Native for the front-end stack which is us
 - **"zustand": "^4.5.2"**
   Zustand is a small, fast, and scalable barebones state management solution that uses flux principles. Zustand is a state management library for React applications. It provides a minimalist footprint and is designed to be simple and easy to use, which makes it perfect for our app. Uses React hooks to manage states.
 
+
+Run: `npx expo prebuild`
+Run: `npx expo run:ios`
+Run: `yarn run mock`
