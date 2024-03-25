@@ -1,14 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { View } from '@/components/Themed';
+import Checklist from '@/components/Checklist/Checklist';
+import { StatusBar } from 'expo-status-bar';
 
 export default function ChecklistScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Checklist</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+      <Checklist />
     </View>
   );
 }
@@ -16,8 +16,8 @@ export default function ChecklistScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // paddingHorizontal: 16,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   title: {
     fontSize: 20,

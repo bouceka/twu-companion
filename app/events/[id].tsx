@@ -1,17 +1,19 @@
 // @flow
+import { View, Text } from '@/components/Themed';
 import Colors from '@/constants/Colors';
 import { defaultStyles } from '@/constants/Styles';
 import useEventStore from '@/store/eventStore';
 import { getUSDate } from '@/utils/utils';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import * as React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { Image, StyleSheet, ScrollView, useColorScheme } from 'react-native';
 
 const EventDetail = () => {
   const { id } = useLocalSearchParams();
   const router = useRouter();
   const { events } = useEventStore();
   const event = events.find((event) => event.id === id);
+  const colorScheme = useColorScheme();
 
   if (event === undefined) {
     router.back();
@@ -28,7 +30,10 @@ const EventDetail = () => {
       <Image source={{ uri: event.imageUrl }} style={styles.image} />
       <View style={styles.categories}>
         {event.categories.map((category) => (
-          <Text style={styles.category} key={event.id + category}>
+          <Text
+            style={[styles.category, { backgroundColor: Colors[colorScheme ?? 'light'].socialGrey }]}
+            key={event.id + category}
+          >
             {category}
           </Text>
         ))}
@@ -68,7 +73,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   category: {
-    backgroundColor: Colors.socialGrey,
     paddingHorizontal: 8,
     lineHeight: 22,
   },
