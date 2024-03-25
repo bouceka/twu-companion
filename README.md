@@ -2,7 +2,7 @@ Run: `npx expo prebuild`
 Run: `npx expo run:ios`
 Run: `yarn run mock`
 
-TWU Companion is an application designed by a team of students from Trinity Western University. The group is comprised of members Adam Boucek, Andrew Nelso, Jenna De Greeff, and Stefan Martinelli. The app is designed for first-year or international students arriving to Trinity Western University and will act as a "companion' to guide them throughout thier transition to TWU. 
+TWU Companion is an application designed by a team of students from Trinity Western University. The group is comprised of members Adam Boucek, Andrew Nelson, Jenna De Greeff, and Stefan Martinelli. The app is designed for first-year or international students arriving to Trinity Western University and will act as a "companion' to guide them throughout thier transition to TWU. 
 
 This application is built using React Native for the front-end stack which is user facing. As for the back end, it is buitlt using Restful API which uses AWS API gateway and AWS Lambda. Additioinally, Expo Modules were used for various differnt UI components. Listed below are brief descriptions of the various libraries and other technologies used for the creation of the application.
 
