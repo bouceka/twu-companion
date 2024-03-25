@@ -1,12 +1,12 @@
 // @flow
-import { View, Text } from '@/components/Themed';
+import { View, Text, ScrollView, } from '@/components/Themed';
 import Colors from '@/constants/Colors';
 import { defaultStyles } from '@/constants/Styles';
 import useEventStore from '@/store/eventStore';
 import { getUSDate } from '@/utils/utils';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import * as React from 'react';
-import { Image, StyleSheet, ScrollView, useColorScheme } from 'react-native';
+import { Image, StyleSheet,  useColorScheme } from 'react-native';
 
 const EventDetail = () => {
   const { id } = useLocalSearchParams();
