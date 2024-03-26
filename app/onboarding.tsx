@@ -15,7 +15,6 @@ import { StatusBar } from 'expo-status-bar';
 import { GestureDetector, Gesture, Directions } from 'react-native-gesture-handler';
 
 import Animated, { FadeIn, FadeOut, SlideOutLeft, SlideInRight } from 'react-native-reanimated';
-import { mmkvStorage } from '@/store/mmkv-storage';
 import { defaultStyles } from '@/constants/Styles';
 import Colors from '@/constants/Colors';
 import { UserBio, User } from '@/types';
@@ -64,17 +63,6 @@ const Onboarding = (props: Props) => {
     }))
   );
 
-  const handleOnboarded = async () => {
-    const onboard = await mmkvStorage.getItem('onboard');
-    if (onboard !== null) {
-      router.navigate('(tabs)');
-    }
-  };
-
-  useEffect(() => {
-    handleOnboarded();
-  }, []);
-
   const onContinue = () => {
     const isLastScreen = screenIndex === onboardingSteps.length - 1;
     if (isLastScreen) {
@@ -103,7 +91,6 @@ const Onboarding = (props: Props) => {
 
   const endOnboarding = async () => {
     setScreenIndex(0);
-    await mmkvStorage.setItem('onboard', JSON.stringify(userBio));
     router.navigate('(tabs)');
   };
 

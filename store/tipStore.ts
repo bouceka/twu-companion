@@ -1,7 +1,5 @@
 import { Tip } from '@/types';
 import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
-import { mmkvStorage } from './mmkv-storage';
 
 export interface TipState {
   tips: Tip[];
@@ -19,7 +17,6 @@ const initialState: TipState = {
 };
 
 const useTipStore = create<TipState & TipActions>()(
-  persist(
     (set) => ({
       ...initialState,
       setTips: (tips: Tip[]) => {
@@ -38,12 +35,6 @@ const useTipStore = create<TipState & TipActions>()(
         });
       },
     }),
-    
-    {
-      name: 'tips',
-      storage: createJSONStorage(() => mmkvStorage),
-    }
-  )
 );
 
 export default useTipStore;

@@ -1,6 +1,4 @@
 import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
-import { mmkvStorage } from './mmkv-storage';
 import { User } from '@/types';
 
 export interface UserState {
@@ -17,7 +15,6 @@ const initialState: UserState = {
 };
 
 const useUserStore = create<UserState & UserActions>()(
-  persist(
     (set) => ({
       ...initialState,
       setUser: (user: User) => {
@@ -32,11 +29,6 @@ const useUserStore = create<UserState & UserActions>()(
       },
     }),
 
-    {
-      name: 'user',
-      storage: createJSONStorage(() => mmkvStorage),
-    }
-  )
 );
 
 export default useUserStore;

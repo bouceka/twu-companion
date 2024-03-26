@@ -1,7 +1,5 @@
-import { PagedResult, TWUEvent } from '@/types';
+import { TWUEvent } from '@/types';
 import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
-import { mmkvStorage } from './mmkv-storage';
 
 export interface EventState {
   events: TWUEvent[];
@@ -19,7 +17,6 @@ const initialState: EventState = {
 };
 
 const useEventStore = create<EventState & EventActions>()(
-  persist(
     (set) => ({
       ...initialState,
       setEvents: (events: TWUEvent[]) => {
@@ -37,12 +34,7 @@ const useEventStore = create<EventState & EventActions>()(
         });
       },
     }),
-    
-    {
-      name: 'events',
-      storage: createJSONStorage(() => mmkvStorage),
-    }
-  )
+
 );
 
 export default useEventStore;
