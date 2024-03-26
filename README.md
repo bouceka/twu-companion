@@ -65,3 +65,4 @@ This application is built using React Native for the front-end stack which is us
 Run: `npx expo prebuild`
 Run: `npx expo run:ios`
 Run: `yarn run mock`
+Run: `npx expo install --check`
