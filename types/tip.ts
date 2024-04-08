@@ -19,7 +19,7 @@ const tipsAndTricks: Tip[] = [
     id: '246a591c-2ce4-4c27-b4d6-2495e4f968e7',
     title: 'Registering for Courses',
     content:
-      'Course registration usually happens in spring. Make sure to meet with your advisor to discuss course options and requirements. Pay attention to deadlines and course prerequisites.',
+      'Course registration usually opens in spring for returning students. Make sure to meet with your advisor to discuss course options and requirements. Pay attention to deadlines and course prerequisites. Try to prioritize your courses that progress your major first, this creates a cushion if a course is missed, or for the addition of a minor or major switch later.',
     category: 'Registration',
     imageUrl: 'https://picsum.photos/id/23/200',
   },
@@ -35,7 +35,7 @@ const tipsAndTricks: Tip[] = [
     id: '0b9fd258-6f04-4f04-8623-d99f8dc70198',
     title: 'Using the Library',
     content:
-      'The school library is a great resource for studying, borrowing books, and finding research materials. Librarians can also help you with research skills and finding specific resources.',
+      'The school library is a great resource for studying, borrowing books, and finding research materials. Librarians can also help you with research skills and finding specific resources. Students can book study rooms for private or small groups to focus together. The learning center provides valuable resources including research help, the writing centre, and the exam centre.',
     category: 'School Life',
     imageUrl: 'https://picsum.photos/id/23/200',
   },
