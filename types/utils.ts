@@ -14,6 +14,7 @@ export interface Building {
   id: number;
   category: string;
   imageSrc: ImageSourcePropType;
+  priority:number,
 }
 
 export interface SchoolService {
