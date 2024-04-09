@@ -108,7 +108,7 @@ export const BUILDINGS: Building[] = [
     title: 'Hanson Garden Chapel',
     id: 12,
     priority: 2,
-    category: 'Chapel',
+    category: 'Outdoor Chapel',
     imageSrc: require('../images/buildings/jpg/hanson-garden-chapel.jpg'),
   },
   {
