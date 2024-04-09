@@ -5,7 +5,7 @@ import { FontAwesome, FontAwesome6 } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import React from 'react';
 import { StyleSheet, FlatList, Image, TouchableOpacity, Pressable } from 'react-native';
-import { View, Text } from '../Themed';
+import { View, Text, Icon } from '../Themed';
 
 interface Props {
   data: Tip[];
@@ -14,7 +14,10 @@ interface Props {
 const TipTable = ({ data }: Props) => {
   return (
     <View style={[styles.sectionContainer, defaultStyles.container]}>
-      <Text>Tips and Tricks</Text>
+            <View style={styles.heading}>
+        <Text style={styles.title}>Tips and Tricks</Text>
+        <Icon size={24} name={'info'} />
+      </View>
       <View style={styles.tableContainer}>
         {data.length == 0 ? (
           <Text>No Data</Text>
@@ -53,6 +56,15 @@ const TipTable = ({ data }: Props) => {
 };
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  heading: {
+    flexDirection: 'row',
+    gap: 16,
+    alignItems:'center'
+  },
   seeMore: {
     display: 'flex',
     flexDirection: 'row',

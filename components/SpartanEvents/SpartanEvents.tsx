@@ -5,41 +5,16 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import React from 'react';
 import { StyleSheet, FlatList, Image, TouchableOpacity, Pressable } from 'react-native';
-import { View, Text, Icon } from '../Themed';
-
-interface Props {
-  data: TWUEvent[];
-}
-
-const EventTable = ({ data }: Props) => {
-  const renderItem = ({ item, index }: { item: TWUEvent; index: number }) => (
-    <Link
-      key={item.id}
-      style={{ backgroundColor: index % 2 !== 0 ? '#FFFFFF' : '#F0F0F0' }}
-      href={`/events/${item.title}`}
-      asChild
-    >
-      <TouchableOpacity>
-        <View style={[styles.tableRow]}>
-          <Image source={{ uri: item.imageUrl }} style={styles.thumbnail} />
-          <View style={{ flex: 1 }}>
-            <Text style={styles.tableData} numberOfLines={1}>
-              {item.title}
-            </Text>
-            <Text style={styles.tableData}>
-              {new Date(item.startDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}
-            </Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    </Link>
-  );
-
+import { View, Text } from '../Themed';
+import { SPARTAN_EVENTS_MOCK } from '@/types/spartanEvent';
+type Props = {};
+export const SpartanEvents = (props: Props) => {
+  const data = SPARTAN_EVENTS_MOCK.slice(0, 5);
   return (
     <View style={[styles.sectionContainer, defaultStyles.container]}>
       <View style={styles.heading}>
-        <Text style={styles.title}>Events</Text>
-        <Icon size={24} name={'calendar'} />
+        <Text style={styles.title}>Spartan Events</Text>
+        <Image style={styles.thumbnail} source={require('@/assets/images/spartan_logo.png')} />
       </View>
       <View style={styles.tableContainer}>
         {data.length == 0 ? (
@@ -51,18 +26,16 @@ const EventTable = ({ data }: Props) => {
             <Link
               key={item.id + index}
               style={{ borderBottomColor: '#ccc', borderBottomWidth: index < data.length - 1 ? 1 : 0 }}
-              href={`/events/${item.id}`}
+              href={`/spartanEvents/${item.id}`}
               asChild
             >
               <TouchableOpacity>
                 <View style={[styles.tableRow]}>
                   <View style={styles.tableRowData}>
                     <Text style={styles.tableData} numberOfLines={1}>
-                      {item.title}
+                      {item.description}
                     </Text>
-                    <Text>
-                      {new Date(item.startDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}
-                    </Text>
+                    <Text>{item.startDate}</Text>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -71,7 +44,7 @@ const EventTable = ({ data }: Props) => {
         )}
       </View>
       <View style={styles.seeMore}>
-        <Link style={styles.seeMoreLink} href={'/events/all-events'}>
+        <Link style={styles.seeMoreLink} href={'/spartanEvents/all-events'}>
           See All
         </Link>
         <FontAwesome color={Colors.primary} name='arrow-right' />
@@ -88,7 +61,7 @@ const styles = StyleSheet.create({
   heading: {
     flexDirection: 'row',
     gap: 16,
-    alignItems: 'center',
+    alignItems:'center'
   },
   seeMore: {
     display: 'flex',
@@ -96,6 +69,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     gap: 8,
+  },
+  thumbnail: {
+    height: 24,
+    width: 24,
   },
   seeMoreLink: {
     color: Colors.primary,
@@ -138,11 +115,6 @@ const styles = StyleSheet.create({
     flex: 2,
     alignItems: 'flex-end',
   },
-  thumbnail: {
-    height: 32,
-    width: 32,
-    borderRadius: 4,
-  },
 });
 
-export default EventTable;
+export default SpartanEvents;
