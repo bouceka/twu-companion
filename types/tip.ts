@@ -35,7 +35,7 @@ const tipsAndTricks: Tip[] = [
     id: '0b9fd258-6f04-4f04-8623-d99f8dc70198',
     title: 'Using the Library',
     content:
-      'The school library is a great resource for studying, borrowing books, and finding research materials. Librarians can also help you with research skills and finding specific resources.',
+      'The school library is a great resource for studying, borrowing books, and finding research materials. Librarians can also help you with research skills and finding specific resources. Students can book study rooms for private or small groups to focus together. The learning center provides valuable resources including research help, the writing centre, and the exam centre.',
     category: 'School Life',
     imageUrl: 'https://picsum.photos/id/23/200',
   },
