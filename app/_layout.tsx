@@ -67,10 +67,24 @@ function RootLayoutNav() {
             }}
           />
           <Stack.Screen
-            name='events/all-events'
+            name='spartanEvents/[id]'
             options={{
               headerBackTitle: 'Back',
               title: '',
+            }}
+          />
+          <Stack.Screen
+            name='spartanEvents/all-events'
+            options={{
+              headerBackTitle: 'Back',
+              title: 'Spartan Events',
+            }}
+          />
+          <Stack.Screen
+            name='events/all-events'
+            options={{
+              headerBackTitle: 'Back',
+              title: 'Events',
             }}
           />
           <Stack.Screen
@@ -84,7 +98,7 @@ function RootLayoutNav() {
             name='tips/all-tips'
             options={{
               headerBackTitle: 'Back',
-              title: '',
+              title: 'Tips and Tricks',
             }}
           />
         </Stack>
