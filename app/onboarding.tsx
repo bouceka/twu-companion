@@ -26,8 +26,10 @@ interface OnboardingStep {
   title: string;
   image: ImageSourcePropType; // This type is used for images imported using require()
   description: string;
-  yesAction?: () => void;
-  noAction?: () => void;
+  primaryAction?: () => void;
+  primaryLabel?: string;
+  secondaryAction?: () => void;
+  secondaryLabel?: string;
 }
 
 interface BadgeData {
@@ -51,7 +53,6 @@ const categories = [
 ];
 
 const Onboarding = (props: Props) => {
-
   const [screenIndex, setScreenIndex] = useState(0);
   const [userBio, setUserBio] = useState<Partial<UserBio>>({});
 
@@ -105,24 +106,30 @@ const Onboarding = (props: Props) => {
       title: 'Welcome to\n TWU Companion',
       image: require('@/assets/images/undraw_Login.png'),
       description: 'Do you have a TWU Companion account?',
-      yesAction: () => endOnboarding(),
-      noAction: () => onContinue(),
+      primaryAction: () => onContinue(),
+      secondaryAction: () => endOnboarding(),
+      primaryLabel: "I'm New",
+      secondaryLabel: 'Log In',
     },
     {
       type: 'enrolled',
       title: 'Let me get to know you better',
       image: require('@/assets/images/undraw_true_friends.png'),
       description: 'Are you currently enrolled at TWU?',
-      yesAction: () => updateUserData('isEnrolled', true),
-      noAction: () => updateUserData('isEnrolled', false),
+      primaryAction: () => updateUserData('isEnrolled', true),
+      secondaryAction: () => updateUserData('isEnrolled', false),
+      primaryLabel: 'Yes',
+      secondaryLabel: 'No',
     },
     {
       type: 'international',
       title: 'Let me get to know you better',
       image: require('@/assets/images/undraw_road_to_knowledge.png'),
       description: 'Are you an international student?',
-      yesAction: () => updateUserData('status', true),
-      noAction: () => updateUserData('status', false),
+      primaryAction: () => updateUserData('status', true),
+      secondaryAction: () => updateUserData('status', false),
+      primaryLabel: 'Yes',
+      secondaryLabel: 'No',
     },
     {
       type: 'categories',
@@ -192,24 +199,29 @@ const Onboarding = (props: Props) => {
 
           <View style={styles.content}>
             {data.type === 'categories' ? (
-              <Animated.View entering={SlideInRight} exiting={SlideOutLeft} style={styles.badgeGroup}>
-                {badgesData.map((badge) => (
-                  <TouchableOpacity
-                    onPress={() => onBadgeClick(badge.id, badge.title)}
-                    key={badge.id}
-                    style={[
-                      {
-                        ...styles.badge,
-                        backgroundColor: badge.isPressed ? Colors.accessibleBlue : Colors.background,
-                      },
-                    ]}
-                  >
-                    <Text style={[styles.badgeText, { color: badge.isPressed ? Colors.white : Colors.trinityBlue }]}>
-                      {badge.title}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </Animated.View>
+              <>
+                <Animated.Text entering={SlideInRight.delay(50)} exiting={SlideOutLeft} style={styles.description}>
+                  {data.description}
+                </Animated.Text>
+                <Animated.View entering={SlideInRight} exiting={SlideOutLeft} style={styles.badgeGroup}>
+                  {badgesData.map((badge) => (
+                    <TouchableOpacity
+                      onPress={() => onBadgeClick(badge.id, badge.title)}
+                      key={badge.id}
+                      style={[
+                        {
+                          ...styles.badge,
+                          backgroundColor: badge.isPressed ? Colors.accessibleBlue : Colors.background,
+                        },
+                      ]}
+                    >
+                      <Text style={[styles.badgeText, { color: badge.isPressed ? Colors.white : Colors.trinityBlue }]}>
+                        {badge.title}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </Animated.View>
+              </>
             ) : (
               <View>
                 <Animated.Text entering={SlideInRight} exiting={SlideOutLeft} style={styles.title}>
@@ -228,11 +240,11 @@ const Onboarding = (props: Props) => {
               </Pressable>
             ) : (
               <>
-                <Pressable onPress={data.noAction} style={defaultStyles.btnOutline}>
-                  <Text style={defaultStyles.btnOutlineText}>No</Text>
+                <Pressable onPress={data.secondaryAction} style={defaultStyles.btnOutline}>
+                  <Text style={defaultStyles.btnOutlineText}>{data.secondaryLabel}</Text>
                 </Pressable>
-                <Pressable onPress={data.yesAction} style={defaultStyles.btn}>
-                  <Text style={defaultStyles.btnText}>Yes</Text>
+                <Pressable onPress={data.primaryAction} style={defaultStyles.btn}>
+                  <Text style={defaultStyles.btnText}>{data.primaryLabel}</Text>
                 </Pressable>
               </>
             )}
