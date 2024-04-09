@@ -13,6 +13,7 @@ import { defaultStyles } from '@/constants/Styles';
 import Search from '@/components/Search/Search';
 import { View, Text } from '@/components/Themed';
 import { StatusBar } from 'expo-status-bar';
+import SpartanEvents from '@/components/SpartanEvents/SpartanEvents';
 
 export default function HomeScreen() {
   const { events, setEvents } = useEventStore();
@@ -52,6 +53,7 @@ export default function HomeScreen() {
       <Search />
       {isLoading && events.length == 0 ? <Text>Loading...</Text> : <EventTable data={events.slice(0, 5)} />}
       {isLoading && tips.length == 0 ? <Text>Loading...</Text> : <TipTable data={tips.slice(0, 5)} />}
+      <SpartanEvents/>
     </ScrollView>
   );
 }
