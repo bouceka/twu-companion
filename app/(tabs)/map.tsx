@@ -16,6 +16,7 @@ export default function MapScreen() {
   const itemsRef = useRef<Array<TouchableOpacity | null>>([]); // list of items in the building list ref
   const [activeIndex, setActiveIndex] = useState(0); // selected building index
   const colorScheme = useColorScheme();
+  const buildings = BUILDINGS.sort((a, b) => b.priority - a.priority)
   const initialRegion: Region = {
     // initial TWU campus
     latitude: 49.140302,
@@ -41,9 +42,9 @@ export default function MapScreen() {
     mapRef.current?.animateToRegion(region);
   };
 
-  const selectBuilding = (building: Building) => {
-    const selected = itemsRef.current[building.id - 1];
-    setActiveIndex(building.id - 1);
+  const selectBuilding = (building: Building,index:number) => {
+    const selected = itemsRef.current[index];
+    setActiveIndex(index);
     selected?.measure((x, y) => {
       scrollRef.current?.scrollTo({ x: 0, y: y - 8, animated: true });
     });
@@ -62,10 +63,10 @@ export default function MapScreen() {
   return (
     <View style={styles.container}>
       <MapView ref={mapRef} showsUserLocation initialRegion={initialRegion} style={styles.map}>
-        {BUILDINGS.map((building, index) => (
+        {buildings.map((building, index) => (
           <CustomMarker
             isActive={building.id === activeIndex}
-            onPress={() => selectBuilding(building)}
+            onPress={() => selectBuilding(building,index)}
             key={index}
             building={building}
           />
@@ -78,14 +79,14 @@ export default function MapScreen() {
         <FontAwesome name='refresh' size={24} onPress={refreshRegion} />
       </TouchableOpacity>
       <ScrollView ref={scrollRef}>
-        {BUILDINGS.map((building, index) => (
+        {buildings.map((building, index) => (
           <TouchableOpacity
             key={building.id}
             style={[
               styles.buildingItem,
               activeIndex === index ? { backgroundColor: Colors[colorScheme ?? 'light'].socialGrey } : null,
             ]}
-            onPress={() => selectBuilding(building)}
+            onPress={() => selectBuilding(building,index)}
             ref={(el) => (itemsRef.current[index] = el)}
           >
             <Image source={building.imageSrc} style={styles.image} />
